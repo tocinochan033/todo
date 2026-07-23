@@ -15,13 +15,13 @@ enum Status{
     Completed,
 }
 
-struct Write{
+struct Task{
     title: String,
     description: String,
     status: Status
 }
 
-impl Write{
+impl Task{
     fn new(title: String, description: String) -> Self{
         Self{
             title,
@@ -32,11 +32,16 @@ impl Write{
 }
 
 struct Todo{
-    todo: Vec<Write>
+    todo: Vec<Task>
 }
 
 impl Todo{
-    fn new_to_do(&mut self, to_do: Write){
+    fn new() -> Self{
+        Self{
+            todo: Vec::new(),
+        }
+    }
+    fn new_to_do(&mut self, to_do: Task){
         self.todo.push(to_do);
     }
 }
