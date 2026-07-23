@@ -1,4 +1,4 @@
-use std::collections::hash_map::Entry;
+use std::fs::write;
 
 const TODO_HELP: &str =
     "Basic todo app\
@@ -22,13 +22,21 @@ struct Write{
 }
 
 impl Write{
-    fn addToDo(&mut self, title_entry: String, description_entry: String) {
-        self.title = title_entry;
-        self.description = description_entry;
-        self.status = Status::Pending;
+    fn new(title: String, description: String) -> Self{
+        Self{
+            title,
+            description,
+            status: Status::Pending,
+        }
     }
 }
 
 struct Todo{
     todo: Vec<Write>
+}
+
+impl Todo{
+    fn new_to_do(&mut self, to_do: Write){
+        self.todo.push(to_do);
+    }
 }
