@@ -1,5 +1,3 @@
-use std::fs::write;
-
 const TODO_HELP: &str =
     "Basic todo app\
     A quick CLI todo app—and I'm not sure what else.\
@@ -44,4 +42,18 @@ impl Todo{
     fn new_to_do(&mut self, to_do: Task){
         self.todo.push(to_do);
     }
+
+    fn consult(&self){
+        for task in &self.todo {
+            println!("title: {}", task.title);
+            println!("Description: {}", task.description);
+
+            match task.status {
+                Status::Pending => println!("Status: PENDING"),
+                Status::Completed => println!("Status: COMPLETED"),
+            }
+            println!("---------------------------------------------------")
+        }
+    }
+
 }
