@@ -4,6 +4,9 @@ mod menu;
 fn main() {
     let mut a = todo::Todo::new();
 
+    println!("Todo list in rust :v");
+    print!("entry: ");
+
     let mut entry = String::new();
     std::io::stdin()
         .read_line(&mut entry).
