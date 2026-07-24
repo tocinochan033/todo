@@ -30,3 +30,17 @@ pub fn delete_task(todo: &mut Todo) -> u8{
 
     entry_id.parse::<u8>().unwrap()
 }
+
+
+pub fn changes_status_to_do(todo: &mut Todo){
+    println!("SELECT TASK TO CHANGES THE STATUS: ");
+    Todo::list(todo);
+
+    println!(": ");
+    let mut entry_id = String::new();
+    io::stdin()
+        .read_line(&mut entry_id)
+        .expect("error entry id");
+    
+    Todo::changes_status(todo, entry_id.parse::<u8>().unwrap());
+}
