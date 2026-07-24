@@ -6,9 +6,11 @@ pub fn add_task(todo: &mut Todo){
     let mut title = String::new();
     let mut description = String::new();
 
+    println!("name Title: ");
     io::stdin()
         .read_line(&mut title)
         .expect("error entry title");
+    println!("Description: ");
     io::stdin()
         .read_line(&mut description)
         .expect("error entry description");
