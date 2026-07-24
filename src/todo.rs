@@ -56,4 +56,13 @@ impl Todo{
         }
     }
 
+    pub fn changes_status(&mut self, id: u8){
+        let temp = &mut self.todo[id as usize];
+
+        match temp.status {
+            Status::Pending => temp.status = Status::Completed,
+            Status::Completed => temp.status = Status::Pending,
+        }
+    }
+
 }
