@@ -16,6 +16,7 @@ fn main() {
             let id: u8 = menu::delete_task(&mut a);
             todo::Todo::delete_task(&mut a, id);
         },
+        "changes status" => menu::changes_status_to_do(&mut a),
         _ => println!("Seleccione una opcion valida\n {}", todo::TODO_HELP),
     }
 }
