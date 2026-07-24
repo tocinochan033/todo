@@ -65,4 +65,7 @@ impl Todo{
         }
     }
 
+    pub fn delete_task(&mut self, id: u8){
+        self.todo.remove(id as usize);
+    }
 }
