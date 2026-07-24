@@ -20,6 +20,6 @@ fn main() {
             todo::Todo::delete_task(&mut a, id);
         },
         "changes status" => menu::changes_status_to_do(&mut a),
-        _ => println!("Seleccione una opcion valida\n {}", todo::TODO_HELP),
+        _ => println!("SELECCIONE UNA OPCION VALIDA.\n {}", todo::TODO_HELP),
     }
 }
