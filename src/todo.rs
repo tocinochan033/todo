@@ -1,5 +1,3 @@
-use crate::menu;
-
 pub const TODO_HELP: &str =
     "Basic todo app\
     A quick CLI todo app—and I'm not sure what else.\
@@ -42,7 +40,6 @@ impl Todo{
             todo: Vec::new(),
         }
     }
-
 
     pub fn new_task(&mut self, task: Task){
         self.todo.push(task);

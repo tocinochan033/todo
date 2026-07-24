@@ -10,7 +10,7 @@ fn main() {
         expect("Error stdin");
 
     match entry.as_str() {
-        "add" => menu::add_task(),
+        "add" => menu::add_task(&mut a),
         "list" => todo::Todo::list(&a),
         "delete" => {
             let id: u8 = menu::delete_task(&mut a);

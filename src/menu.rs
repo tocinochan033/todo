@@ -2,7 +2,7 @@ use std::io;
 use crate::todo;
 use crate::todo::Todo;
 
-pub fn add_task(){
+pub fn add_task(todo: &mut Todo){
     let mut title = String::new();
     let mut description = String::new();
 
@@ -13,8 +13,10 @@ pub fn add_task(){
         .read_line(&mut description)
         .expect("error entry description");
 
-    todo::Task::new(title, description);
+    let task_obj = todo::Task::new(title, description);
+    todo::Todo::new_task(todo, task_obj);
 }
+
 
 pub fn delete_task(todo: &mut Todo) -> u8{
     println!("SELECT TASK: ");
