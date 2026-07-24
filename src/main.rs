@@ -1,22 +1,17 @@
 mod todo;
+mod menu;
 
 fn main() {
-    let mut a = todo::Todo::new();
+    let a = todo::Todo::new();
 
+    let mut entry = String::new();
+    std::io::stdin()
+        .read_line(&mut entry).
+        expect("Error stdin");
 
-    //adding a lot of task
-    let t1 = todo::Task::new("title 1".to_string(),"description 1".to_string());
-    todo::Todo::new_task(&mut a, t1);
-
-    let t2 = todo::Task::new("title 2".to_string(),"description 2".to_string());
-    todo::Todo::new_task(&mut a, t2);
-
-    let t3 = todo::Task::new("title 3".to_string(),"description 3".to_string());
-    todo::Todo::new_task(&mut a, t3);
-
-    let t4 = todo::Task::new("title 4".to_string(),"description 4".to_string());
-    todo::Todo::new_task(&mut a, t4);
-
-
-    todo::Todo::consult(&a);
+    match entry.as_str() {
+        "add" => menu::add_task(),
+        "list" => todo::Todo::list(&a),
+        _ => println!("Seleccione una opcion valida\n {}", todo::TODO_HELP),
+    }
 }

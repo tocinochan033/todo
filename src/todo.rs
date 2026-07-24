@@ -1,4 +1,4 @@
-const TODO_HELP: &str =
+pub const TODO_HELP: &str =
     "Basic todo app\
     A quick CLI todo app—and I'm not sure what else.\
     Available commands:\
@@ -7,6 +7,7 @@ const TODO_HELP: &str =
         list: View the full list of available tasks\
         delete: Delete an existing task\
         change status: Change the status of an existing task";
+
 
 enum Status{
     Pending,
@@ -39,11 +40,12 @@ impl Todo{
             todo: Vec::new(),
         }
     }
+
     pub fn new_task(&mut self, task: Task){
         self.todo.push(task);
     }
 
-    pub fn consult(&self){
+    pub fn list(&self){
         for task in &self.todo {
             println!("title: {}", task.title);
             println!("Description: {}", task.description);
@@ -68,4 +70,7 @@ impl Todo{
     pub fn delete_task(&mut self, id: u8){
         self.todo.remove(id as usize);
     }
+
 }
+
+
