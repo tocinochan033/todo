@@ -1,3 +1,5 @@
+use crate::menu;
+
 pub const TODO_HELP: &str =
     "Basic todo app\
     A quick CLI todo app—and I'm not sure what else.\
@@ -31,7 +33,7 @@ impl Task{
 }
 
 pub struct Todo{
-    todo: Vec<Task>
+    pub todo: Vec<Task>
 }
 
 impl Todo{
@@ -40,6 +42,7 @@ impl Todo{
             todo: Vec::new(),
         }
     }
+
 
     pub fn new_task(&mut self, task: Task){
         self.todo.push(task);
@@ -70,7 +73,6 @@ impl Todo{
     pub fn delete_task(&mut self, id: u8){
         self.todo.remove(id as usize);
     }
-
 }
 
 
