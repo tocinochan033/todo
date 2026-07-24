@@ -13,14 +13,14 @@ enum Status{
     Completed,
 }
 
-struct Task{
+pub struct Task{
     title: String,
     description: String,
     status: Status
 }
 
 impl Task{
-    fn new(title: String, description: String) -> Self{
+    pub fn new(title: String, description: String) -> Self{
         Self{
             title,
             description,
@@ -29,21 +29,21 @@ impl Task{
     }
 }
 
-struct Todo{
+pub struct Todo{
     todo: Vec<Task>
 }
 
 impl Todo{
-    fn new() -> Self{
+    pub fn new() -> Self{
         Self{
             todo: Vec::new(),
         }
     }
-    fn new_to_do(&mut self, to_do: Task){
-        self.todo.push(to_do);
+    pub fn new_task(&mut self, task: Task){
+        self.todo.push(task);
     }
 
-    fn consult(&self){
+    pub fn consult(&self){
         for task in &self.todo {
             println!("title: {}", task.title);
             println!("Description: {}", task.description);
