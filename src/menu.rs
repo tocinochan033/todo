@@ -14,7 +14,7 @@ pub fn add_task(todo: &mut Todo){
         .expect("error entry description");
 
     let task_obj = todo::Task::new(title, description);
-    todo::Todo::new_task(todo, task_obj);
+    Todo::new_task(todo, task_obj);
 }
 
 
@@ -41,6 +41,6 @@ pub fn changes_status_to_do(todo: &mut Todo){
     io::stdin()
         .read_line(&mut entry_id)
         .expect("error entry id");
-    
+
     Todo::changes_status(todo, entry_id.parse::<u8>().unwrap());
 }
