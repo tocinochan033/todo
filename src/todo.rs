@@ -65,7 +65,7 @@ impl Todo{
             temp_todo.title = new_modification;
         }
         else if task_entry == "description" {
-            temp_todo.description ==  new_modification;
+            temp_todo.description =  new_modification;
         }
     }
 

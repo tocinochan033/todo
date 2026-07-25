@@ -56,8 +56,8 @@ pub fn edit_task(todo: &mut Todo){
     io::stdin()
         .read_line(&mut modification_entry)
         .expect("error entry modification");
-    
-    todo::Todo::edit(todo, entry_id.parse::<u8>().unwrap(), task_entry, modification_entry);
+
+    Todo::edit(todo, entry_id.parse::<u8>().unwrap(), task_entry, modification_entry);
 }
 
 
