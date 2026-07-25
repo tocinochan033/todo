@@ -43,7 +43,21 @@ pub fn edit_task(todo: &mut Todo){
         .read_line(&mut entry_id)
         .expect("error entry id");
 
-    println!("Que ")
+    println!("En cual aspecto deseas modificar?");
+    println!(": ");
+    let mut task_entry = String::new();
+    io::stdin()
+        .read_line(&mut task_entry)
+        .expect("error entry modification");
+
+    println!("Mod");
+    println!(": ");
+    let mut modification_entry = String::new();
+    io::stdin()
+        .read_line(&mut modification_entry)
+        .expect("error entry modification");
+    
+    todo::Todo::edit(todo, entry_id.parse::<u8>().unwrap(), task_entry, modification_entry);
 }
 
 
