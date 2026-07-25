@@ -58,6 +58,17 @@ impl Todo{
         }
     }
 
+    pub fn edit(&mut self, id: u8, task_entry: String, new_modification: String){
+        let temp_todo = &mut self.todo[id as usize];
+
+        if task_entry == "title" {
+            temp_todo.title = new_modification;
+        }
+        else if task_entry == "description" {
+            temp_todo.description ==  new_modification;
+        }
+    }
+
     pub fn changes_status(&mut self, id: u8){
         let temp = &mut self.todo[id as usize];
 
