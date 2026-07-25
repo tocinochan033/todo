@@ -13,7 +13,7 @@ fn main() {
             .read_line(&mut entry).
             expect("Error stdin");
 
-        match entry.as_str() {
+        match entry.trim() {
             "add" => menu::add_task(&mut a),
             "list" => todo::Todo::list(&a),
             "delete" => {
@@ -32,7 +32,7 @@ fn main() {
 
 }
 
-fn clear_screen() {
+pub fn clear_screen() {
     // \x1B[2J borra toda la pantalla
     // \x1B[0;0f mueve el cursor a la esquina superior izquierda
     print!("\x1B[2J\x1B[0;0f");
