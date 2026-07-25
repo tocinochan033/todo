@@ -22,7 +22,11 @@ fn main() {
             },
             "edit" => menu::edit_task(&mut a),
             "changes status" => menu::changes_status_to_do(&mut a),
-            _ => { println!("SELECCIONE UNA OPCION VALIDA.\n {}", todo::TODO_HELP); clear_screen() },
+            _ => {
+                clear_screen();
+                println!("SELECCIONE UNA OPCION VALIDA.\n {}", todo::TODO_HELP);
+                std::thread::sleep(std::time::Duration::from_millis(3000));
+            },
         }
     }
 
