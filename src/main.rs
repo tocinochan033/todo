@@ -6,7 +6,10 @@ fn main() {
 
     loop {
         println!("Todo list in rust :v");
-        print!("entry: ");
+        std::thread::sleep(std::time::Duration::from_millis(3000));
+
+        println!("{}", todo::TODO_HELP);
+        eprint!("SELECT ANY OPTION: ");
 
         let mut entry = String::new();
         std::io::stdin()

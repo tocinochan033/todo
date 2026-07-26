@@ -6,11 +6,11 @@ pub fn add_task(todo: &mut Todo){
     let mut title = String::new();
     let mut description = String::new();
 
-    println!("name Title: ");
+    eprint!("Title: ");
     io::stdin()
         .read_line(&mut title)
         .expect("error entry title");
-    println!("Description: ");
+    eprint!("Description: ");
     io::stdin()
         .read_line(&mut description)
         .expect("error entry description");
@@ -21,10 +21,9 @@ pub fn add_task(todo: &mut Todo){
 
 
 pub fn delete_task(todo: &mut Todo) -> u8{
-    println!("SELECT TASK: ");
-    Todo::list(todo);
+    Todo::list(todo); //show all task available
 
-    println!(": ");
+    eprint!("SELECT TASK: ");
     let mut entry_id = String::new();
     io::stdin()
         .read_line(&mut entry_id)
@@ -34,24 +33,21 @@ pub fn delete_task(todo: &mut Todo) -> u8{
 }
 
 pub fn edit_task(todo: &mut Todo){
-    println!("SELECT TASK: ");
-    Todo::list(todo);
+    Todo::list(todo); //show all task available
+    eprint!("SELECT TASK: ");
 
-    println!(": ");
     let mut entry_id = String::new();
     io::stdin()
         .read_line(&mut entry_id)
         .expect("error entry id");
 
-    println!("En cual aspecto deseas modificar?");
-    println!(": ");
+    eprint!("En cual aspecto deseas modificar?");
     let mut task_entry = String::new();
     io::stdin()
         .read_line(&mut task_entry)
         .expect("error entry modification");
 
-    println!("Mod");
-    println!(": ");
+    eprint!("Modification: ");
     let mut modification_entry = String::new();
     io::stdin()
         .read_line(&mut modification_entry)
@@ -62,14 +58,14 @@ pub fn edit_task(todo: &mut Todo){
 
 
 pub fn changes_status_to_do(todo: &mut Todo){
-    println!("SELECT TASK TO CHANGES THE STATUS: ");
     Todo::list(todo);
+    eprint!("SELECT TASK TO CHANGES THE STATUS: ");
 
-    println!(": ");
     let mut entry_id = String::new();
     io::stdin()
         .read_line(&mut entry_id)
         .expect("error entry id");
 
+    Todo::changes_status(todo, entry_id.parse::<u8>().unwrap());
     Todo::changes_status(todo, entry_id.parse::<u8>().unwrap());
 }
