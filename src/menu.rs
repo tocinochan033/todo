@@ -55,7 +55,7 @@ pub fn edit_task(todo: &mut Todo){
                 .read_line(&mut modification_entry)
                 .expect("error entry modification");
 
-            Todo::edit(todo, entry_id.trim().parse::<u8>().expect("No se que putas esta pasando pero no parsea xd"), task_entry, modification_entry);
+            Todo::edit(todo, entry_id.trim().parse::<u8>().unwrap(), task_entry, modification_entry);
             break 'label;
         }else { println!("Favor de seleccionar una opcion valida"); std::thread::sleep(std::time::Duration::from_millis(3000));
         }
