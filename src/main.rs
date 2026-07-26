@@ -4,11 +4,11 @@ mod menu;
 fn main() {
     let mut a = todo::Todo::new();
 
-    loop {
-        println!("Todo list in rust :v");
+        println!("Todo list");
         std::thread::sleep(std::time::Duration::from_millis(3000));
-
         println!("{}", todo::TODO_HELP);
+
+    loop {
         eprint!("SELECT ANY OPTION: ");
 
         let mut entry = String::new();
@@ -25,12 +25,14 @@ fn main() {
             },
             "edit" => menu::edit_task(&mut a),
             "status" => menu::changes_status_to_do(&mut a),
+            "exit" => break,
             _ => {
                 clear_screen();
                 println!("SELECCIONE UNA OPCION VALIDA.\n {}", todo::TODO_HELP);
                 std::thread::sleep(std::time::Duration::from_millis(3000));
             },
         }
+        clear_screen();
     }
 
 }
