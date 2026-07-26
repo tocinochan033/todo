@@ -29,7 +29,7 @@ pub fn delete_task(todo: &mut Todo) -> u8{
         .read_line(&mut entry_id)
         .expect("error entry id");
 
-    entry_id.parse::<u8>().unwrap()
+    entry_id.trim().parse::<u8>().unwrap()
 }
 
 pub fn edit_task(todo: &mut Todo){
