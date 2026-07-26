@@ -3,7 +3,7 @@ A CLI application to manage your task list.
 
 ## Installation and use
 ```bash
-charge run
+cargo run
 ```
 
 ## Commands
