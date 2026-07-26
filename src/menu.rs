@@ -33,27 +33,34 @@ pub fn delete_task(todo: &mut Todo) -> u8{
 }
 
 pub fn edit_task(todo: &mut Todo){
-    Todo::list(todo); //show all task available
-    eprint!("SELECT TASK: ");
+    'label: loop {
+        Todo::list(todo); //show all task available
+        eprint!("SELECT TASK: ");
 
-    let mut entry_id = String::new();
-    io::stdin()
-        .read_line(&mut entry_id)
-        .expect("error entry id");
+        let mut entry_id = String::new();
+        io::stdin()
+            .read_line(&mut entry_id)
+            .expect("error entry id");
 
-    eprint!("En cual aspecto deseas modificar?");
-    let mut task_entry = String::new();
-    io::stdin()
-        .read_line(&mut task_entry)
-        .expect("error entry modification");
+        eprint!("En cual aspecto deseas modificar?");
+        let mut task_entry = String::new();
+        io::stdin()
+            .read_line(&mut task_entry)
+            .expect("error entry modification");
 
-    eprint!("Modification: ");
-    let mut modification_entry = String::new();
-    io::stdin()
-        .read_line(&mut modification_entry)
-        .expect("error entry modification");
+        if task_entry == "title" || task_entry == "description" {
+            eprint!("Modification: ");
+            let mut modification_entry = String::new();
+            io::stdin()
+                .read_line(&mut modification_entry)
+                .expect("error entry modification");
 
-    Todo::edit(todo, entry_id.parse::<u8>().unwrap(), task_entry, modification_entry);
+            Todo::edit(todo, entry_id.trim().parse::<u8>().expect("No se que putas esta pasando pero no parsea xd"), task_entry, modification_entry);
+            break 'label;
+        }else { println!("Favor de seleccionar una opcion valida"); std::thread::sleep(std::time::Duration::from_millis(3000));
+        }
+    }
+
 }
 
 
