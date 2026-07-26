@@ -24,7 +24,7 @@ fn main() {
                 todo::Todo::delete_task(&mut a, id);
             },
             "edit" => menu::edit_task(&mut a),
-            "changes status" => menu::changes_status_to_do(&mut a),
+            "status" => menu::changes_status_to_do(&mut a),
             _ => {
                 clear_screen();
                 println!("SELECCIONE UNA OPCION VALIDA.\n {}", todo::TODO_HELP);

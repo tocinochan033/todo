@@ -48,7 +48,7 @@ pub fn edit_task(todo: &mut Todo){
             .read_line(&mut task_entry)
             .expect("error entry modification");
 
-        if task_entry == "title" || task_entry == "description" {
+        if task_entry == "title\r\n" || task_entry == "description\r\n" {
             eprint!("Modification: ");
             let mut modification_entry = String::new();
             io::stdin()
@@ -73,6 +73,5 @@ pub fn changes_status_to_do(todo: &mut Todo){
         .read_line(&mut entry_id)
         .expect("error entry id");
 
-    Todo::changes_status(todo, entry_id.parse::<u8>().unwrap());
-    Todo::changes_status(todo, entry_id.parse::<u8>().unwrap());
+    Todo::changes_status(todo, entry_id.trim().parse::<u8>().unwrap());
 }

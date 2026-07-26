@@ -6,7 +6,7 @@ pub const TODO_HELP: &str =
         edit: Edit an existing task\n
         list: View the full list of available tasks\n
         delete: Delete an existing task\n
-        change status: Change the status of an existing task.\n";
+        status: Change the status of an existing task.\n";
 
 
 enum Status{
